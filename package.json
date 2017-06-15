@@ -1,0 +1,33 @@
+{
+  "name": "tablestore",
+  "main": "index.js",
+  "description": "TableStore SDK for JavaScript",
+  "version": "1.0.0",
+   "devDependencies": {
+    "mocha": "*"
+  },
+  "dependencies": {
+    "protobufjs": "^4.1.2",
+    "int64-buffer": "0.1.9"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "tablestore",
+    "ots"
+  ],
+  "author": {
+    "name": "boxiaowpl",
+    "email": "boxiao.wpl@alibaba-inc.com"
+  },
+  "license": "Apache-2.0"
+}
