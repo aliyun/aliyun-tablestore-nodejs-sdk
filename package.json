@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/aliyun/aliyun-tablestore-nodejs-sdk.git"
   },
   "keywords": [
     "tablestore",
