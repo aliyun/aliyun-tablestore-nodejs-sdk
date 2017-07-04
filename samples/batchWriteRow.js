@@ -16,7 +16,7 @@ var params = {
 };
 
 client.batchWriteRow(params, function (err, data) {
-    debugger
+    
     if (err) {
         console.log('error:', err);
         return;

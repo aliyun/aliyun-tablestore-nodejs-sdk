@@ -18,6 +18,5 @@ client.getRow(params, function (err, data) {
     console.log('error:', err);
     return;
   }
-  debugger
   console.log('success:', data);
 });
