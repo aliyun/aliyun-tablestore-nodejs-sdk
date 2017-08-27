@@ -15,7 +15,7 @@ npm install tablestore
 参考在samples目录下的代码示例，将samples/client.js文件中的相关参数修改为自己实例的参数即可。
 
 ## 贡献代码
- - 我们非常欢迎大家为TableStore JAVA SDK以及其他TableStore SDK贡献代码
+ - 我们非常欢迎大家为TableStore NodeJs SDK以及其他TableStore SDK贡献代码
 
 ## 联系我们
 - [阿里云TableStore官方网站](http://www.aliyun.com/product/ots)
