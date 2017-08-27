@@ -21,7 +21,3 @@ var requestEnd = new Date().getTime();
 var requestTime = requestEnd - start;
 
 console.log('requestTime:' + requestTime);
-
-
-
-
