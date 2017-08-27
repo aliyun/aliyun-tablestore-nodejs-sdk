@@ -2,7 +2,7 @@
   "name": "tablestore",
   "main": "index.js",
   "description": "TableStore SDK for JavaScript",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "devDependencies": {
     "mocha": "*"
   },
