@@ -1,9 +1,13 @@
+# Aliyun tablestore SDK for Node.js
+
+[![Build Status](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk)
+
 ## 关于
  - 此NodeJs SDK基于[阿里云表格存储服务](http://www.aliyun.com/product/ots/) API构建。
  - 阿里云表格存储是阿里云自主研发的NoSQL数据存储服务，提供海量结构化数据的存储和实时访问。
 
 ## 版本
- - 当前版本：4.0.4
+ - 当前版本：4.0.5
 
 ## 安装
 
