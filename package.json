@@ -4,7 +4,8 @@
   "description": "TableStore SDK for JavaScript",
   "version": "4.0.6",
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^3.2.0",
+    "coveralls": "^2.13.1",
   },
   "dependencies": {
     "protobufjs": "^4.1.2",
@@ -16,8 +17,6 @@
   },
   "scripts": {
     "test": "mocha test*",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
