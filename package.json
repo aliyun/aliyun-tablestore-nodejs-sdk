@@ -5,7 +5,7 @@
   "version": "4.0.6",
   "devDependencies": {
     "mocha": "^3.2.0",
-    "coveralls": "^2.13.1",
+    "coveralls": "^2.13.1"
   },
   "dependencies": {
     "protobufjs": "^4.1.2",
@@ -16,7 +16,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha test*",
+    "test": "mocha test*"
   },
   "repository": {
     "type": "git",
