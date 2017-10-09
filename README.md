@@ -30,8 +30,3 @@ npm install tablestore
 - [阿里云TableStore官方文档中心](https://help.aliyun.com/product/8315004_ots.html)
 - [阿里云云栖社区](http://yq.aliyun.com)
 - [阿里云工单系统](https://workorder.console.aliyun.com/#/ticket/createIndex)
-
-## License
-
-This SDK is distributed under the
-[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
