@@ -1,5 +1,7 @@
 # Aliyun tablestore SDK for Node.js
 
+[![License Status](https://img.shields.io/badge/license-apache2-brightgreen.svg)](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk)
+[![GitHub version](https://badge.fury.io/gh/aliyun%2Faliyun-tablestore-nodejs-sdk.svg)](https://badge.fury.io/gh/aliyun%2Faliyun-tablestore-nodejs-sdk)
 [![Build Status](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk)
 [![Coverage Status](https://coveralls.io/repos/github/aliyun/aliyun-tablestore-nodejs-sdk/badge.svg?branch=master)](https://coveralls.io/github/aliyun/aliyun-tablestore-nodejs-sdk?branch=master)
 
