@@ -14,7 +14,7 @@
   },
   "directories": {
     "doc": "doc",
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
     "test": "mocha test*",
