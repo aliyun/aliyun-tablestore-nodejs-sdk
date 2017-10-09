@@ -1,6 +1,7 @@
 # Aliyun tablestore SDK for Node.js
 
 [![Build Status](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk)
+[![Coverage Status](https://coveralls.io/repos/github/aliyun/aliyun-tablestore-nodejs-sdk/badge.svg?branch=master)](https://coveralls.io/github/aliyun/aliyun-tablestore-nodejs-sdk?branch=master)
 
 ## 关于
  - 此NodeJs SDK基于[阿里云表格存储服务](http://www.aliyun.com/product/ots/) API构建。
