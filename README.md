@@ -30,3 +30,9 @@ npm install tablestore
 - [阿里云TableStore官方文档中心](https://help.aliyun.com/product/8315004_ots.html)
 - [阿里云云栖社区](http://yq.aliyun.com)
 - [阿里云工单系统](https://workorder.console.aliyun.com/#/ticket/createIndex)
+
+### 扫码加入TableStore钉钉讨论群，和我们直接交流讨论
+![Image text](https://raw.githubusercontent.com/aliyun/aliyun-tablestore-nodejs-sdk/master/images/gongkaijiaoliuqun.jpg)
+
+
+
