@@ -33,6 +33,3 @@ npm install tablestore
 
 ### 扫码加入TableStore钉钉讨论群，和我们直接交流讨论
 ![Image text](https://raw.githubusercontent.com/aliyun/aliyun-tablestore-nodejs-sdk/master/images/gongkaijiaoliuqun.jpg)
-
-
-
