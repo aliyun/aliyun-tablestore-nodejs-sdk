@@ -16,7 +16,7 @@ var getRow = function () {
         maxVersions: 10
     };
     client.getRow(getRowParams, function (err, data) {
-        debugger
+        
     });
 };
 

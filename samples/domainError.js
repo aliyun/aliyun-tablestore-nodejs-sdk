@@ -1,5 +1,5 @@
 var client = require('./client');
-var domain = require('domain')
+var domain = TableStore.util.nodeRequire('domain');
 
 //https://nodejs.org/api/domain.html#domain_domain_enter
 //https://shapeshed.com/uncaught-exceptions-in-node/

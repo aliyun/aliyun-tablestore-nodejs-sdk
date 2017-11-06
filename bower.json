@@ -1,0 +1,32 @@
+{
+    "name": "bower",
+    "description": "TableStore SDK for JavaScript",
+    "main": "index.js",
+    "authors": [
+      "boxiao.wpl@alibaba-inc.com"
+    ],
+    "license": "Apache-2.0",
+    "keywords": [
+      "tablestore",
+      "ots"
+    ],
+    "homepage": "https://github.com/aliyun/aliyun-tablestore-nodejs-sdk",
+    "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "test*",
+      "samples",
+      "samples-async(node6)",
+      "browser.js",
+      "index.js"
+    ],
+    "devDependencies": {
+      "spark-md5": "~1.0.0",
+      "jsSHA": "~2.0.1"
+    },
+    "moduleType": [
+      "globals"
+    ]
+  }
+  
