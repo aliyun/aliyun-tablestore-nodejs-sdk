@@ -13,8 +13,8 @@ condition.addSubCondition(new TableStore.SingleColumnCondition('addr', 'china', 
 
 params.columnFilter = condition;
 
-//读取宽行
-params.columnFilter = new TableStore.ColumnPaginationFilter(2, 0);
+//ColumnPaginationFilter Sample
+//params.columnFilter = new TableStore.ColumnPaginationFilter(2, 0);
 
 client.getRow(params, function (err, data) {
   if (err) {
