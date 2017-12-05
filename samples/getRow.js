@@ -4,8 +4,7 @@ var client = require('./client');
 
 var params = {
   tableName: "sampleTable",
-  primaryKey: [{ 'gid': Long.fromNumber(20004) }, { 'uid': Long.fromNumber(20004) }],
-  maxVersions: 2
+  primaryKey: [{ 'gid': Long.fromNumber(20013) }, { 'uid': Long.fromNumber(20013) }],
 };
 var condition = new TableStore.CompositeCondition(TableStore.LogicalOperator.AND);
 condition.addSubCondition(new TableStore.SingleColumnCondition('name', 'john', TableStore.ComparatorType.EQUAL));

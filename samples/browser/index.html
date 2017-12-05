@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tablestore-js-sdk demo</title>
+</head>
+
+<body>
+    <script src="./tablestore-js-sdk-4.0.9.min.js"></script>
+    <script>
+        var Long = TableStore.Long;
+
+        var client = new TableStore.Client({
+            accessKeyId: "sts token accessKeyId",
+            secretAccessKey: "sts token secretAccessKey",
+            securityToken: "sts token securityToken",
+            endpoint: ' <your endpoint>',
+            instancename: '<your instance name>'
+        });
+
+        client.listTable({}, function (err, data) {
+            if (err) {
+                console.log('error:', err);
+                return;
+            }
+            console.log('success:', data);
+        });
+
+
+    </script>
+</body>
+
+</html>
