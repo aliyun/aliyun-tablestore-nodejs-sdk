@@ -17,7 +17,7 @@
 browserify browser.js > tablestore-js-sdk.js
 ```
 
-使用uglijs压缩：
+使用uglifyjs压缩：
 ```sh
 uglifyjs tablestore-js-sdk.js -o tablestore-js-sdk.min.js
 ```
