@@ -24,9 +24,7 @@ uglifyjs tablestore-js-sdk.js -o tablestore-js-sdk.min.js
 
 ## 初始化
 
-```javascript
 考虑安全问题，请使用 STS token 初始化 TableStore Client
-```
 
 ```javascript
 var stsTokenClient = new TableStore.Client({
