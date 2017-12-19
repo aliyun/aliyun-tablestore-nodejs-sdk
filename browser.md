@@ -30,7 +30,7 @@ uglifyjs tablestore-js-sdk.js -o tablestore-js-sdk.min.js
 var stsTokenClient = new TableStore.Client({
   accessKeyId: "sts token 中的 accessKeyId",
   secretAccessKey: "sts token 中的 secretAccessKey",
-  securityToken: "sts token 中的 securityToken",
+  stsToken: "sts token 中的 securityToken",
   endpoint: ' <your endpoint>',
   instancename: '<your instance name>'
 });
