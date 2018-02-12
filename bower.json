@@ -3,7 +3,7 @@
     "description": "TableStore SDK for JavaScript",
     "main": "index.js",
     "authors": [
-      "boxiao.wpl@alibaba-inc.com"
+      "boxiao.wpl"
     ],
     "license": "Apache-2.0",
     "keywords": [

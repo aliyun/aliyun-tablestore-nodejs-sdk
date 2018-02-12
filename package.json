@@ -33,9 +33,6 @@
   "browser": {
     "./lib/util.js": "./lib/util-browser.js"
   },
-  "author": {
-    "name": "boxiaowpl",
-    "email": "boxiao.wpl@alibaba-inc.com"
-  },
+  "author": "boxiao.wpl",
   "license": "Apache-2.0"
 }
