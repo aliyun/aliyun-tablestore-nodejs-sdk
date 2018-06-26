@@ -90,6 +90,11 @@ message ConsumedCapacity {
     required CapacityUnit capacity_unit = 1;
 }
 
+message StreamSpecification {
+    required bool enable_stream = 1;
+    optional int32 expiration_time = 2;
+}
+
 /* #############################################  CreateTable  ############################################# */
 /**
  * table_meta用于存储表中不可更改的schema属性，可以更改的ReservedThroughput和TableOptions独立出来，作为UpdateTable的参数。
@@ -107,6 +112,7 @@ message CreateTableRequest {
     required ReservedThroughput reserved_throughput = 2; // 未放在TableOptions内，原因是UpdateTableResponse中会返回ReservedThroughputDetails，而TableOptions没有类似的返回结构。
     optional TableOptions table_options = 3;
     repeated PartitionRange partitions = 4;
+    optional StreamSpecification stream_spec = 5;
 }
 
 message CreateTableResponse {
@@ -120,6 +126,7 @@ message UpdateTableRequest {
     required string table_name = 1;
     optional ReservedThroughput reserved_throughput = 2;
     optional TableOptions table_options = 3;
+    optional StreamSpecification stream_spec = 4;
 }
 
 message UpdateTableResponse {

@@ -15,6 +15,8 @@ params.columnFilter = condition;
 //ColumnPaginationFilter Sample
 //params.columnFilter = new TableStore.ColumnPaginationFilter(2, 0);
 
+//columnsToGet Sample
+//parames.columnsToGet = ['gid','col1']
 client.getRow(params, function (err, data) {
   if (err) {
     console.log('error:', err);
