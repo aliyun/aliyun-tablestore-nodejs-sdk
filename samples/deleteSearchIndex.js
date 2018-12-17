@@ -1,10 +1,9 @@
 var client = require('./client');
 
-var params = {
-    tableName: 'nestedTag'
-};
-
-client.deleteTable(params, function (err, data) {
+client.deleteSearchIndex({
+    tableName: "nestedTag",
+    indexName: "testIndex"
+}, function (err, data) {
     if (err) {
         console.log('error:', err);
         return;

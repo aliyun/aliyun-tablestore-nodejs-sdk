@@ -2,14 +2,14 @@ var client = require('./client');
 
 var params = {
   tableMeta: {
-    tableName: 'sampleTable',
+    tableName: 'nestedTag',
     primaryKey: [
       {
-        name: 'gid',
-        type: 'INTEGER'
+        name: 'pic_id',
+        type: 'STRING'
       },
       {
-        name: 'uid',
+        name: 'count',
         type: 'INTEGER'
       }
     ]

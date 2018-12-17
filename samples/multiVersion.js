@@ -1,6 +1,6 @@
 var TableStore = require('../index.js');
 var Long = TableStore.Long;
-var client = require('../samples/client');
+var client = require('./client');
 
 var tableName = 'maxVersionsTestTable';
 var primaryKey = [{ 'pk1': 'pk1val' }, { 'pk2': 'pk2val' }];

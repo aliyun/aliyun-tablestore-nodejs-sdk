@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package tablestore.proto;
 
 message Error {
@@ -11,6 +13,16 @@ enum PrimaryKeyType {
     BINARY = 3;
 }
 
+enum DefinedColumnType {
+    DCT_INTEGER = 1;
+    DCT_DOUBLE = 2;
+    DCT_BOOLEAN = 3;
+    DCT_STRING = 4;
+    // field 5 is reserved for date type, not supported yet
+    // field 6 is reserved for decimal type, not supported yet
+    DCT_BLOB = 7;
+}
+
 enum PrimaryKeyOption {
     AUTO_INCREMENT = 1;
 }
@@ -18,7 +30,12 @@ enum PrimaryKeyOption {
 message PrimaryKeySchema {
     required string name = 1;
     required PrimaryKeyType type = 2;
-    optional PrimaryKeyOption option = 3; 
+    optional PrimaryKeyOption option = 3;
+}
+
+message DefinedColumnSchema {
+    required string name = 1;
+    required DefinedColumnType type = 2;
 }
 
 message PartitionRange {
@@ -32,6 +49,15 @@ enum BloomFilterType {
     ROW = 3;
 }
 
+enum DataBlockType {
+    DBT_PLAIN_BUFFER = 0;
+    DBT_SIMPLE_ROW_MATRIX = 1;
+}
+
+enum CompressType {
+    CPT_NONE = 0;
+}
+
 message TableOptions {
     optional int32 time_to_live = 1; // 可以动态更改
     optional int32 max_versions = 2; // 可以动态更改
@@ -40,9 +66,29 @@ message TableOptions {
     optional int64 deviation_cell_version_in_sec = 5; // 可以动态修改
 }
 
+enum IndexUpdateMode {
+    IUM_ASYNC_INDEX = 0;
+    IUM_SYNC_INDEX = 1;
+}
+
+enum IndexType {
+    IT_GLOBAL_INDEX = 0;
+    IT_LOCAL_INDEX = 1;
+}
+
+message IndexMeta {
+    required string name = 1;
+    repeated string primary_key = 2;
+    repeated string defined_column = 3;
+    required IndexUpdateMode index_update_mode = 4;
+    required IndexType index_type = 5;
+}
+
 message TableMeta {
     required string table_name = 1;
     repeated PrimaryKeySchema primary_key = 2;
+    repeated DefinedColumnSchema defined_column = 3;
+    repeated IndexMeta index_meta = 4;
 }
 
 /**
@@ -95,6 +141,13 @@ message StreamSpecification {
     optional int32 expiration_time = 2;
 }
 
+message StreamDetails {
+    required bool enable_stream = 1;
+    optional string stream_id = 2;
+    optional int32 expiration_time = 3;
+    optional int64 last_enable_time = 4;
+}
+
 /* #############################################  CreateTable  ############################################# */
 /**
  * table_meta用于存储表中不可更改的schema属性，可以更改的ReservedThroughput和TableOptions独立出来，作为UpdateTable的参数。
@@ -113,6 +166,7 @@ message CreateTableRequest {
     optional TableOptions table_options = 3;
     repeated PartitionRange partitions = 4;
     optional StreamSpecification stream_spec = 5;
+    repeated IndexMeta index_metas = 7;
 }
 
 message CreateTableResponse {
@@ -120,6 +174,30 @@ message CreateTableResponse {
 
 /* ######################################################################################################### */
 
+/* #############################################  CreateIndex  ############################################# */
+
+message CreateIndexRequest {
+    required string main_table_name = 1;
+    required IndexMeta index_meta = 2;
+    optional bool include_base_data = 3;
+}
+
+message CreateIndexResponse {
+}
+
+/* ######################################################################################################### */
+
+/* #############################################  DropIndex  ############################################# */
+
+message DropIndexRequest {
+    required string main_table_name = 1;
+    required string index_name = 2;
+}
+
+message DropIndexResponse {
+}
+
+/* ######################################################################################################### */
 
 /* #############################################  UpdateTable  ############################################# */
 message UpdateTableRequest {
@@ -132,6 +210,7 @@ message UpdateTableRequest {
 message UpdateTableResponse {
     required ReservedThroughputDetails reserved_throughput_details = 1;
     required TableOptions table_options = 2;
+    optional StreamDetails stream_details = 3;
 }
 /* ######################################################################################################### */
 
@@ -145,7 +224,9 @@ message DescribeTableResponse {
     required ReservedThroughputDetails reserved_throughput_details = 2;
     required TableOptions table_options = 3;
     required TableStatus table_status = 4;
+    optional StreamDetails stream_details = 5;
     repeated bytes shard_splits = 6;
+    repeated IndexMeta index_metas = 8;
 }
 /* ########################################################################################################### */
 
@@ -206,10 +287,12 @@ message TimeRange {
 enum ReturnType {
     RT_NONE = 0;
     RT_PK = 1;
+    RT_AFTER_MODIFY = 2;
 }
 
 message ReturnContent {
     optional ReturnType return_type = 1;
+    repeated string return_column_names = 2;
 }
 
 /**
@@ -227,6 +310,7 @@ message GetRowRequest {
     optional string start_column = 8;
     optional string end_column = 9;
     optional bytes token = 10;
+    optional string transaction_id = 11;
 }
 
 message GetRowResponse {
@@ -242,6 +326,7 @@ message UpdateRowRequest {
     required bytes row_change = 2;
     required Condition condition = 3;
     optional ReturnContent return_content = 4;
+    optional string transaction_id = 5;
 }
 
 message UpdateRowResponse {
@@ -251,8 +336,6 @@ message UpdateRowResponse {
 /* ####################################################################################################### */
 
 /* #############################################  PutRow  ############################################# */
-
-
 /**
  * 这里允许用户为每列单独设置timestamp，而不是强制整行统一一个timestamp。
  * 原因是列都是用统一的结构，该结构本身是带timestamp的，其次强制统一timestamp增强了规范性但是丧失了灵活性，且该规范性没有明显的好处，反而带来了结构的复杂。
@@ -262,11 +345,12 @@ message PutRowRequest {
     required bytes row = 2; // encoded as InplaceRowChangeSet
     required Condition condition = 3;
     optional ReturnContent return_content = 4;
+    optional string transaction_id = 5;
 }
 
 message PutRowResponse {
     required ConsumedCapacity consumed = 1;
-    optional bytes row = 2; // encoded as InplaceRowChangeSet
+    optional bytes row = 2;
 }
 /* #################################################################################################### */
 
@@ -280,6 +364,7 @@ message DeleteRowRequest {
     required bytes primary_key = 2; // encoded as InplaceRowChangeSet, but only has primary key
     required Condition condition = 3;
     optional ReturnContent return_content = 4;
+    optional string transaction_id = 5;
 }
 
 message DeleteRowResponse {
@@ -289,6 +374,9 @@ message DeleteRowResponse {
 /* ####################################################################################################### */
 
 /* #############################################  BatchGetRow  ############################################# */
+/**
+ * HBase支持Batch操作的每行都拥有不同的查询参数，OTS不支持。
+ */
 message TableInBatchGetRowRequest {
     required string table_name = 1;
     repeated bytes primary_key = 2; // encoded as InplaceRowChangeSet, but only has primary key
@@ -346,13 +434,14 @@ message TableInBatchWriteRowRequest {
 
 message BatchWriteRowRequest {
     repeated TableInBatchWriteRowRequest tables = 1;
+    optional string transaction_id = 2;
 }
 
 message RowInBatchWriteRowResponse {
     required bool is_ok = 1;
     optional Error error = 2;
     optional ConsumedCapacity consumed = 3;
-    optional bytes row = 4; // encoded as InplaceRowChangeSet
+    optional bytes row = 4;
 }
 
 message TableInBatchWriteRowResponse {
@@ -391,6 +480,10 @@ message GetRangeRequest {
     optional string start_column = 11;
     optional string end_column = 12;
     optional bytes token = 13;
+    optional string transaction_id = 14;
+    optional DataBlockType data_block_type_hint = 15 [default = DBT_PLAIN_BUFFER];
+    optional bool return_entire_primary_keys = 16 [default = true];
+    optional CompressType compress_type_hint = 17 [default = CPT_NONE];
 }
 
 message GetRangeResponse {
@@ -398,6 +491,147 @@ message GetRangeResponse {
     required bytes rows = 2; // encoded as InplaceRowChangeSet
     optional bytes next_start_primary_key = 3; // 若为空，则代表数据全部读取完毕. encoded as InplaceRowChangeSet, but only has primary key
     optional bytes next_token = 4;
+    optional DataBlockType data_block_type = 5;
+    optional CompressType compress_type = 6;
 }
+
+/* ######################################################################################################### */
+
+/* ###########################################  LocalTransaction  ########################################### */
+message StartLocalTransactionRequest {
+    required string table_name = 1;
+    required bytes key = 2; // encoded as SQLVariant
+}
+
+message StartLocalTransactionResponse {
+    required string transaction_id = 1;
+};
+
+message CommitTransactionRequest {
+    required string transaction_id = 1;
+}
+
+message CommitTransactionResponse {
+};
+
+message AbortTransactionRequest {
+    required string transaction_id = 1;
+}
+
+message AbortTransactionResponse {
+};
+
+/* ######################################################################################################### */
+
+
 /* ###################################################################################################### */
+/* #############################################  Stream  ############################################# */
+
+message ListStreamRequest {
+    optional string table_name = 1;
+}
+
+message Stream {
+    required string stream_id = 1;
+    required string table_name = 2;
+    required int64 creation_time = 3;
+}
+
+message ListStreamResponse {
+    repeated Stream streams = 1;
+}
+
+message StreamShard {
+    required string shard_id = 1;
+    optional string parent_id = 2;
+    optional string parent_sibling_id = 3;
+}
+
+enum StreamStatus {
+    STREAM_ENABLING = 1;
+    STREAM_ACTIVE = 2;
+}
+
+message DescribeStreamRequest {
+    required string stream_id = 1;
+    optional string inclusive_start_shard_id = 2;
+    optional int32 shard_limit = 3;
+}
+
+message DescribeStreamResponse {
+    required string stream_id = 1;
+    required int32 expiration_time = 2;
+    required string table_name = 3;
+    required int64 creation_time = 4;
+    required StreamStatus stream_status = 5;
+    repeated StreamShard shards = 6;
+    optional string next_shard_id = 7;
+}
+
+message GetShardIteratorRequest {
+    required string stream_id = 1;
+    required string shard_id = 2;
+}
+
+message GetShardIteratorResponse {
+    required string shard_iterator = 1;
+}
+
+message GetStreamRecordRequest {
+    required string shard_iterator = 1;
+    optional int32 limit = 2;
+}
+
+enum ActionType {
+    PUT_ROW = 1;
+    UPDATE_ROW = 2;
+    DELETE_ROW = 3;
+}
+
+message GetStreamRecordResponse {
+    message StreamRecord {
+        required ActionType action_type = 1;
+        required bytes record = 2;
+    }
+    repeated StreamRecord stream_records = 1;
+    optional string next_shard_iterator = 2;
+}
+
+/* +++++ ComputeSplitPointsBySize  +++++ */
+message ComputeSplitPointsBySizeRequest {
+    required string table_name = 1;
+    required int64 split_size = 2; // in 100MB
+    optional int64 split_size_unit_in_byte = 3;
+}
+
+message ComputeSplitPointsBySizeResponse {
+    required ConsumedCapacity consumed = 1;
+    repeated PrimaryKeySchema schema = 2;
+
+    /**
+     * Split points between splits, in the increasing order
+     *
+     * A split is a consecutive range of primary keys,
+     * whose data size is about split_size specified in the request.
+     * The size could be hard to be precise.
+     *
+     * A split point is an array of primary-key column w.r.t. table schema,
+     * which is never longer than that of table schema.
+     * Tailing -inf will be omitted to reduce transmission payloads.
+     */
+    repeated bytes split_points = 3;
+
+    /**
+     * Locations where splits lies in.
+     *
+     * By the managed nature of TableStore, these locations are no more than hints.
+     * If a location is not suitable to be seen, an empty string will be placed.
+     */
+     message SplitLocation {
+         required string location = 1;
+         required sint64 repeat = 2;
+     }
+     repeated SplitLocation locations = 4;
+}
+/* -------------------------------------- */
 
