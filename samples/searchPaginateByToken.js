@@ -25,7 +25,7 @@ client.search({
     },
     columnToGet: {
         returnType: TableStore.ColumnReturnType.RETURN_NONE,
-        returnNames: ["pic_tag", "pic_description", "time_stemp", "pos"]
+        returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
     }
 }, function (err, data) {
     var nextToken = data.nextToken.toString("base64", data.nextToken.offset, data.nextToken.limit);
