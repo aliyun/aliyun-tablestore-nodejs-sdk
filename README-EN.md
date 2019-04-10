@@ -5,6 +5,8 @@
 [![Build Status](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-tablestore-nodejs-sdk)
 [![Coverage Status](https://coveralls.io/repos/github/aliyun/aliyun-tablestore-nodejs-sdk/badge.svg?branch=master)](https://coveralls.io/github/aliyun/aliyun-tablestore-nodejs-sdk?branch=master)
 
+## [中文版 (Chinese README)](README.md)
+
 ## About
  - This NodeJs SDK is a client library for the [Alibaba Cloud Table Store Service](http://www.aliyun.com/product/ots/) API.
  - Alibaba Cloud Table Store is a NoSQL database service built on Alibaba Cloud’s Apsara distributed operating system that can store and access large volumes of structured data in real time.
