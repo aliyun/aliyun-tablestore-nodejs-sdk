@@ -157,7 +157,7 @@ var testQueryMap = {
                 }
             },
             fieldValueFactor: {
-                fieldName: "time_stemp"//数值字段
+                fieldName: "time_stamp"//数值字段
             }
         }
     },
