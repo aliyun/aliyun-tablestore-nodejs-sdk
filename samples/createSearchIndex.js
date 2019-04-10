@@ -23,7 +23,7 @@ client.createSearchIndex({
                 isAnArray: false
             },
             {
-                fieldName: "time_stemp",
+                fieldName: "time_stamp",
                 fieldType: TableStore.FieldType.LONG,
                 index: true,
                 enableSortAndAgg: false,
