@@ -262,7 +262,7 @@ client.search({
     },
     columnToGet: {
         returnType: TableStore.ColumnReturnType.RETURN_SPECIFIED,
-        returnNames: ["pic_tag", "pic_description", "time_stemp", "pos"]
+        returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
     },
     routingValues: [
         [{count: Long.fromNumber(0), pic_id: "pic_id_0"}],//pk顺序与创建index时routingFields一致
