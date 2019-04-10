@@ -46,7 +46,7 @@ client.search({
         },
         columnToGet: {
             returnType: TableStore.ColumnReturnType.RETURN_NONE,
-            returnNames: ["pic_tag", "pic_description", "time_stemp", "pos"]
+            returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
         }
     }, function (err, data) {
         console.log('token success:', JSON.stringify(data, null, 2));
