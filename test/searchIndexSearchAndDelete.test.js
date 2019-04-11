@@ -409,7 +409,7 @@ function getParams(type) {
         },
         columnToGet: {
             returnType: TableStore.ColumnReturnType.RETURN_ALL,
-            returnNames: ["pic_tag", "pic_des", "time_stemp", "pos"]
+            returnNames: ["pic_tag", "pic_des", "time_stamp", "pos"]
         }
     }
 }
