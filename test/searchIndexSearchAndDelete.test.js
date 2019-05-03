@@ -213,6 +213,12 @@ var queryMap = {
             fieldName: "pic_id",
             terms: ["pic_id_1", "pic_id_2"]
         }
+    },
+    EXISTS_QUERY: {
+        queryType: TableStore.QueryType.EXISTS_QUERY,
+        query: {
+            fieldName: "pic_des"
+        }
     }
 };
 

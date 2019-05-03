@@ -18,6 +18,7 @@ enum QueryType {
     GEO_DISTANCE_QUERY = 13;
     GEO_POLYGON_QUERY = 14;
     TERMS_QUERY = 15;
+    EXISTS_QUERY = 16;
 }
 
 enum QueryOperator {
@@ -120,6 +121,10 @@ message GeoPolygonQuery {
     repeated string points = 2;
 }
 
+message ExistsQuery {
+    optional string field_name = 1;
+}
+
 message Query {
     optional QueryType type = 1;
     optional bytes query = 2;
@@ -149,10 +154,6 @@ message ScoreSort {
     optional SortOrder order = 1;
 }
 
-message PrimaryKeySort {
-    optional SortOrder order = 1;
-}
-
 message FieldSort {
     optional string field_name = 1;
     optional SortOrder order = 2;
@@ -172,6 +173,10 @@ message GeoDistanceSort {
     optional SortMode mode = 4;
     optional GeoDistanceType distance_type = 5;
     optional NestedFilter nested_filter = 6;
+}
+
+message PrimaryKeySort {
+    optional SortOrder order = 1;
 }
 
 message Sorter {
@@ -217,6 +222,7 @@ message SearchRequest {
 /**
  * Response部分：
  **/
+
 message SearchResponse {
     optional int64 total_hits = 1;
     repeated bytes rows = 2;
@@ -286,7 +292,6 @@ message IndexInfo {
 message ListSearchIndexRequest {
     optional string table_name = 1;
 }
-
 message ListSearchIndexResponse {
     repeated IndexInfo indices = 1;
 }
@@ -322,4 +327,3 @@ message DescribeSearchIndexResponse {
     optional IndexSchema schema = 1;
     optional SyncStat sync_stat = 2;
 }
-
