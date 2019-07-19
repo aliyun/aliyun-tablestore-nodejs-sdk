@@ -7,24 +7,22 @@ var params = {
     tables: [
         {
             tableName: 'sampleTable',
-            rows:
-            [{
-                type: 'UPDATE',
-                condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
-                primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(80) }],
-                attributeColumns: [{ 'PUT': [{ 'attrCol1': 'test3' }, { 'attrCol2': 'test4' }] }],
-                returnContent: { returnType: 1 }
-            }]
-        },
-        {
-            tableName: 'sampleTable',
-            rows: [{
-                type: 'PUT',
-                condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
-                primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(81) }],
-                attributeColumns: [{ 'attrCol1': 'test1' }, { 'attrCol2': 'test2' }],
-                returnContent: { returnType: TableStore.ReturnType.Primarykey }
-            }]
+            rows: [
+                {
+                    type: 'UPDATE',
+                    condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
+                    primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(80) }],
+                    attributeColumns: [{ 'PUT': [{ 'attrCol1': 'test3' }, { 'attrCol2': 'test4' }] }],
+                    returnContent: { returnType: 1 }
+                },
+                {
+                    type: 'PUT',
+                    condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
+                    primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(81) }],
+                    attributeColumns: [{ 'attrCol1': 'test1' }, { 'attrCol2': 'test2' }],
+                    returnContent: { returnType: TableStore.ReturnType.Primarykey }
+                }
+            ]
         }
     ],
 };

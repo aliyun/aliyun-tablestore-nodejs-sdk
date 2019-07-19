@@ -4,12 +4,12 @@ var params = {
     tableName: 'sampleTable',
     reservedThroughput: {
         capacityUnit: {
-            read: 1000,
-            write: 1000
+            read: 0,
+            write: 0
         }
     },
     tableOptions: {
-        maxVersions: 2,
+        maxVersions: 10,
     }
 };
 

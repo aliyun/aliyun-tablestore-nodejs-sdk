@@ -1,4 +1,4 @@
-package com.aliyun.tablestore.protocol;
+package filter.proto;
 
 enum FilterType {
     FT_SINGLE_COLUMN_VALUE = 1;

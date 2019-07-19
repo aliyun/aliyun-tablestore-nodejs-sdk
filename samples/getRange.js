@@ -5,6 +5,7 @@ var client = require('./client');
 var params = {
   tableName: "sampleTable",
   direction: TableStore.Direction.FORWARD,
+  maxVersions: 10,
   inclusiveStartPrimaryKey: [{ "gid": TableStore.INF_MIN }, { "uid": TableStore.INF_MIN }],
   exclusiveEndPrimaryKey: [{ "gid": TableStore.INF_MAX }, { "uid": TableStore.INF_MAX }],
   limit: 2

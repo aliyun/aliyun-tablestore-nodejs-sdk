@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package tablestore.proto;
+package main.proto;
 
 message Error {
     required string code = 1;

@@ -28,10 +28,12 @@ client.search({
         returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
     }
 }, function (err, data) {
-    var nextToken = data.nextToken.toString("base64", data.nextToken.offset, data.nextToken.limit);
+    var nextToken = data.nextToken.toString("base64");
     var token = new Buffer(nextToken, "base64");
 
     console.log('success:', JSON.stringify(data, null, 2));
+    console.log('token:', nextToken);
+
     client.search({
         tableName: "nestedTag",
         indexName: "testIndex",
@@ -49,7 +51,11 @@ client.search({
             returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
         }
     }, function (err, data) {
+        var nextToken = data.nextToken.toString("base64");
+        var token = new Buffer(nextToken, "base64");
+
         console.log('token success:', JSON.stringify(data, null, 2));
+        console.log('token:', nextToken);
     })
 });
 

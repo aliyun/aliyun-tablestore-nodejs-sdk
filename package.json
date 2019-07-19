@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "buffer": "4.9.1",
-    "protobufjs": "^4.1.2",
-    "int64-buffer": "0.1.9"
+    "int64-buffer": "0.1.9",
+    "protobufjs": "^6.8.8"
   },
   "directories": {
     "doc": "doc",
