@@ -42,4 +42,4 @@ npm install tablestore
 - [阿里云工单系统](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
 ### 扫码加入TableStore钉钉讨论群，和我们直接交流讨论
-![Image text](http://tablestore-doc.oss-cn-hangzhou.aliyuncs.com/tablestore_dingding.jpg?x-oss-process=image/resize,m_lfit,h_400)
+![Image text](https://console-demo.oss-cn-beijing.aliyuncs.com/marker.png?x-oss-process=image/resize,m_lfit,h_400)
