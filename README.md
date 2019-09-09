@@ -12,8 +12,14 @@
  - 阿里云表格存储是阿里云自主研发的NoSQL数据存储服务，提供海量结构化数据的存储和实时访问。
 
 ## 版本
- - 当前版本：4.3.2
+ - 当前版本：5.0.1
 
+## 版本特性
+ - 升级protobufjs依赖（4.1.2 -> 6.8.8）
+ - 请求参数向前兼容，返回参数字段改变：下划线变为驼峰式（与request保持一致)
+
+## 历史版本
+ - 版本：4.3.2
 ## 版本特性
  - 修复Query不支持Long类型查询问题
  - 支持SearchIndex
@@ -42,4 +48,4 @@ npm install tablestore
 - [阿里云工单系统](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
 ### 扫码加入TableStore钉钉讨论群，和我们直接交流讨论
-![Image text](http://tablestore-doc.oss-cn-hangzhou.aliyuncs.com/tablestore_dingding.jpg?x-oss-process=image/resize,m_lfit,h_400)
+![Image text](https://github.com/aliyun/tablestore-examples/blob/master/image/QRcode.png)

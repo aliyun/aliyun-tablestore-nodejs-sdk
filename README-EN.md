@@ -45,4 +45,4 @@ You can configure the samples for use by setting the correct relevant parameters
 - [Create Alibaba Cloud Support Ticket (Must be logged in)](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
 ### Join our Tablestore Chat Group on [DingDing Talk](https://www.dingtalk.com/en)
-![Image text](http://tablestore-doc.oss-cn-hangzhou.aliyuncs.com/tablestore_dingding.jpg?x-oss-process=image/resize,m_lfit,h_400)
+![Image text](https://github.com/aliyun/tablestore-examples/blob/master/image/QRcode.png)

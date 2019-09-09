@@ -201,7 +201,7 @@ describe('#Prove SearchIndex Exist:', function () {
         };
         client.listSearchIndex(params, function (err, data) {
             assert.equal(data.indices.length, 1);
-            assert.equal(data.indices[0].index_name, indexName);
+            assert.equal(data.indices[0].indexName, indexName);
             done();
         })
     });
@@ -213,7 +213,7 @@ describe('#Prove SearchIndex Exist:', function () {
         };
         client.describeSearchIndex(params, function (err, data) {
             assert.equal(err, undefined);
-            assert.equal(data.schema.field_schemas.length, 6);
+            assert.equal(data.schema.fieldSchemas.length, 6);
             done();
         })
     })
