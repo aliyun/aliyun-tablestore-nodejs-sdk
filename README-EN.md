@@ -12,7 +12,7 @@
  - Alibaba Cloud Tablestore is a NoSQL database service built on Alibaba Cloud’s Apsara distributed operating system that can store and access large volumes of structured data in real time.
 
 ## Version
- - Current Version: 5.0.3
+ - Current Version: 5.0.4
 
 ## Version Feature Updates
  - Bug fixed: Queries are now supported using the "Long" datatype
