@@ -10,7 +10,7 @@ var params = {
         { 'INCREMENT': [{ 'increment': Long.fromNumber(1)}] }
     ],
     returnContent: {
-        returnColumns: "increment",
+        returnColumns: ["increment"],
         returnType: TableStore.ReturnType.AfterModify
     }
 };
@@ -36,7 +36,7 @@ var batchParams = {
                     primaryKey: [{ 'order_id': "order_id_001" }],
                     attributeColumns: [{ 'INCREMENT': [{ 'increment': Long.fromNumber(1)}] }],
                     returnContent: {
-                        returnColumns: "increment",
+                        returnColumns: ["increment"],
                         returnType: TableStore.ReturnType.AfterModify
                     }
                 }

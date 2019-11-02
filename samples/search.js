@@ -217,7 +217,7 @@ var testQueryMap = {
     EXISTS_QUERY: {//16
     queryType: TableStore.QueryType.EXISTS_QUERY,
         query: {
-        fieldName: "col1"
+            fieldName: "pic_id"
         }
     }
 };
@@ -228,17 +228,17 @@ client.search({
     searchQuery: {
         offset: 0,
         limit: 10,
-        query: testQueryMap.MATCH_ALL_QUERY,
+        query: testQueryMap.NESTED_QUERY,
         getTotalCount: true,
         sort: {
             sorters: [
                 {
                     fieldSort: {
-                        fieldName: "pic_id",
-                        order: TableStore.SortOrder.SORT_ORDER_ASC,
+                        fieldName: "count",
+                        order: TableStore.SortOrder.SORT_ORDER_DESC,
                         // mode: TableStore.SortMode.SORT_MODE_AVG,//for nested
                         // nestedFilter: {
-                        //     path: "pos",
+                        //     path: "pic_tag",
                         //     filter: {
                         //         queryType: TableStore.QueryType.MATCH_ALL_QUERY,
                         //     }
@@ -253,7 +253,7 @@ client.search({
                     //     points: ["0,0"],
                     //     order: TableStore.SortOrder.SORT_ORDER_ASC,
                     //     distanceType: TableStore.GeoDistanceType.GEO_DISTANCE_ARC,
-                    //     // mode: TableStore.SortMode.SORT_MODE_AVG,
+                    //     // mode: TableStore.SortMode.SORT_MODE_MIN,
                     //     // nestedFilter: {
                     //     //     path: "pos",
                     //     //     filter: {
@@ -267,7 +267,7 @@ client.search({
         }
     },
     columnToGet: {
-        returnType: TableStore.ColumnReturnType.RETURN_SPECIFIED,
+        returnType: TableStore.ColumnReturnType.RETURN_NONE,
         returnNames: ["pic_tag", "pic_description", "time_stamp", "pos"]
     },
     routingValues: [

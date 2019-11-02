@@ -12,7 +12,7 @@
  - Alibaba Cloud Tablestore is a NoSQL database service built on Alibaba Cloud’s Apsara distributed operating system that can store and access large volumes of structured data in real time.
 
 ## Version
- - Current Version: 4.3.2
+ - Current Version: 5.0.5
 
 ## Version Feature Updates
  - Bug fixed: Queries are now supported using the "Long" datatype
@@ -45,4 +45,4 @@ You can configure the samples for use by setting the correct relevant parameters
 - [Create Alibaba Cloud Support Ticket (Must be logged in)](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
 ### Join our Tablestore Chat Group on [DingDing Talk](https://www.dingtalk.com/en)
-![Image text](http://tablestore-doc.oss-cn-hangzhou.aliyuncs.com/tablestore_dingding.jpg?x-oss-process=image/resize,m_lfit,h_400)
+![Image text](img/QRCode-EN.JPG)

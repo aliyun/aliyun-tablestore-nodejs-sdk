@@ -5,8 +5,9 @@ var client = require('./client');
 var params = {
   tableName: "sampleTable",
   direction: TableStore.Direction.FORWARD,
+  maxVersions: 10,
   inclusiveStartPrimaryKey: [{ "gid": TableStore.INF_MIN }, { "uid": TableStore.INF_MIN }],
-  exclusiveEndPrimaryKey: [{ "gid": TableStore.INF_MAX }, { "uid": TableStore.INF_MAX }],
+	exclusiveEndPrimaryKey: [{ "gid": TableStore.INF_MAX }, { "uid": TableStore.INF_MAX }],
   limit: 2
 };
 
@@ -21,14 +22,14 @@ var getRange = function () {
     resultRows = resultRows.concat(data.rows)
 
     //如果data.next_start_primary_key不为空，说明需要继续读取
-    if (data.next_start_primary_key) {
+    if (data.nextStartPrimaryKey) {
       params.inclusiveStartPrimaryKey = [
-        { "gid": data.next_start_primary_key[0].value },
-        { "uid": data.next_start_primary_key[1].value }
-      ]
+        { "gid": data.nextStartPrimaryKey[0].value },
+        { "uid": data.nextStartPrimaryKey[1].value }
+      ];
       getRange()
     } else {
-      console.log(resultRows)
+      console.log(JSON.stringify(resultRows));
     }
   });
 }

@@ -12,12 +12,12 @@ var params = {
         startColumn: "col2",
         endColumn: "col4"
     },
-    {
-        tableName: 'notExistTable',
-        primaryKey: [
-            [{ 'gid': Long.fromNumber(10001) }, { 'uid': Long.fromNumber(10001) }]
-        ]
-    }
+    // {
+    //     tableName: 'notExistTable',
+    //     primaryKey: [
+    //         [{ 'gid': Long.fromNumber(10001) }, { 'uid': Long.fromNumber(10001) }]
+    //     ]
+    // }
     ],
 };
 

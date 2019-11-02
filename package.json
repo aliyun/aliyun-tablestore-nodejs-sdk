@@ -4,7 +4,7 @@
   "types": "typings/index.d.ts",
   "typings": "typings/index.d.ts",
   "description": "TableStore SDK for JavaScript",
-  "version": "4.3.2",
+  "version": "5.0.5",
   "devDependencies": {
     "mocha": "^3.2.0",
     "coveralls": "^2.13.1",
@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "buffer": "4.9.1",
-    "protobufjs": "^4.1.2",
-    "int64-buffer": "0.1.9"
+    "int64-buffer": "0.1.9",
+    "protobufjs": "^6.8.8"
   },
   "directories": {
     "doc": "doc",

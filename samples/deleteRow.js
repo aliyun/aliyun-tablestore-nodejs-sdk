@@ -5,7 +5,7 @@ var client = require('./client');
 var params = {
     tableName: "sampleTable",
     condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
-    primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(80) }]
+    primaryKey: [{ 'gid': Long.fromNumber(20013) }, { 'uid': Long.fromNumber(20013) }]
 };
 
 client.deleteRow(params, function (err, data) {

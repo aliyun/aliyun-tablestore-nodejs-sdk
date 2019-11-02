@@ -63,7 +63,7 @@ describe('#GlobalIndex Test:', function () {
             tableName: 'sdkGlobalTest'
         };
         client.describeTable(describeTableParams, function (descriveTableErr, descriveTableData) {
-            assert.equal(descriveTableData.index_metas.length, 1);
+            assert.equal(descriveTableData.indexMetas.length, 1);
             done();
         });
     });
@@ -88,7 +88,7 @@ describe('#GlobalIndex Test:', function () {
             tableName: 'sdkGlobalTest'
         };
         client.describeTable(describeTableParams, function (descriveTableErr, descriveTableData) {
-            assert.equal(descriveTableData.index_metas.length, 2);
+            assert.equal(descriveTableData.indexMetas.length, 2);
             done();
         });
     });
@@ -118,7 +118,7 @@ describe('#GlobalIndex Test:', function () {
             tableName: 'sdkGlobalTest'
         };
         client.describeTable(describeTableParams, function (describeTableErr, describeTableData) {
-            assert.equal(describeTableData.index_metas.length, 0);
+            assert.equal(describeTableData.indexMetas.length, 0);
             done();
         })
     });
@@ -139,7 +139,7 @@ describe('#GlobalIndex Test:', function () {
             tableName: 'sdkGlobalTest'
         };
         client.listTable(describeTableParams, function (describeTableErr, listTableData) {
-            assert.equal(listTableData.table_names.indexOf(describeTableParams.tableName), -1);
+            assert.equal(listTableData.indexMetas.indexOf(describeTableParams.tableName), -1);
             done();
         })
     })

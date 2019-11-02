@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package tablestore.search.proto;
+package search.proto;
 
 enum QueryType {
     MATCH_QUERY = 1;
