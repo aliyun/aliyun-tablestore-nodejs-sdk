@@ -63,7 +63,7 @@ function batchGetRow(params) {
             batchGetRow(retryRequest);
         }
 
-        console.log('success:', data);
+        console.log('success:', JSON.stringify(data, null, 4));
     });
 }
 

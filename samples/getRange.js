@@ -19,6 +19,7 @@ var getRange = function () {
       console.log('error:', err);
       return;
     }
+    console.log(JSON.stringify(data, null, 4));
     resultRows = resultRows.concat(data.rows)
 
     //如果data.next_start_primary_key不为空，说明需要继续读取
