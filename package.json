@@ -33,6 +33,7 @@
   "browser": {
     "./lib/util.js": "./lib/util-browser.js"
   },
+  "types": "./index.d.ts",
   "author": "boxiao.wpl",
   "license": "Apache-2.0"
 }
