@@ -1005,5 +1005,4 @@ declare namespace TableStore {
 
   type TColumnCondition = CompositeCondition | SingleColumnCondition | ColumnPaginationFilter;
 }
-
 export = TableStore;
