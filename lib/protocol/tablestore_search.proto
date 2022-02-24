@@ -159,6 +159,7 @@ message FieldSort {
     optional SortOrder order = 2;
     optional SortMode mode = 3;
     optional NestedFilter nested_filter = 4;
+    optional bytes missing = 5; //encoded as SQLVariant
 }
 
 enum GeoDistanceType {
@@ -217,6 +218,7 @@ message SearchRequest {
     optional ColumnsToGet columns_to_get = 3;
     optional bytes search_query = 4;
     repeated bytes routing_values = 5;
+    optional int32 timeout_ms = 6;
 }
 
 /**
@@ -247,6 +249,21 @@ enum FieldType {
     TEXT = 5;
     NESTED = 6;
     GEO_POINT = 7;
+    DATE = 8;
+}
+
+message SingleWordAnalyzerParameter {
+    optional bool case_sensitive = 1;
+    optional bool delimit_word = 2;
+}
+
+message SplitAnalyzerParameter {
+    optional string delimiter = 1;
+}
+
+message FuzzyAnalyzerParameter {
+    optional int32 min_chars = 1;
+    optional int32 max_chars = 2;
 }
 
 message FieldSchema {
@@ -259,6 +276,10 @@ message FieldSchema {
     optional bool store = 7;
     repeated FieldSchema field_schemas = 8; // only for nested type
     optional bool is_array = 9;
+    optional bytes analyzer_parameter = 10;
+    optional bool is_virtual_field = 11;
+    repeated string source_field_names = 12;
+    repeated string date_formats = 13;
 }
 
 message IndexSchema {

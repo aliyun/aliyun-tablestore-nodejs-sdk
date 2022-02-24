@@ -273,7 +273,8 @@ client.search({
     routingValues: [
         [{count: Long.fromNumber(0), pic_id: "pic_id_0"}],//pk顺序与创建index时routingFields一致
         [{count: Long.fromNumber(3), pic_id: "pic_id_3"}],
-    ]
+    ],
+    timeoutMs: 30_0000,
 }, function (err, data) {
     if (err) {
         console.log('error:', err);

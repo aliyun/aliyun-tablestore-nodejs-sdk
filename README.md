@@ -10,23 +10,24 @@
 ## 关于
  - 此NodeJs SDK基于[阿里云表格存储服务](http://www.aliyun.com/product/ots/) API构建。
  - 阿里云表格存储是阿里云自主研发的NoSQL数据存储服务，提供海量结构化数据的存储和实时访问。
-
-## 版本
- - 当前版本：5.0.6
+ 
 
 ## 版本特性
- - 升级protobufjs依赖（4.1.2 -> 6.8.8）
- - 请求参数向前兼容，返回参数字段改变：下划线变为驼峰式（与request保持一致)
-
-## 历史版本
- - 版本：4.3.2
-## 版本特性
- - 修复Query不支持Long类型查询问题
- - 支持SearchIndex
- - 支持GlobalIndex
- - 支持原子加
- - 支持事务
- - 支持ExistsQuery
+- 版本：5.1.0
+  - 多元索引支持日期类型
+  - 多元索引查询SearchAPI支持设置单独的timeout
+  - 多元索引排序支持missing
+  - 创建多元索引支持设置分词、分词参数、虚拟列
+- 版本：5.0.6
+   - 升级protobufjs依赖（4.1.2 -> 6.8.8）
+   - 请求参数向前兼容，返回参数字段改变：下划线变为驼峰式（与request保持一致)
+- 版本：4.3.2
+  - 修复Query不支持Long类型查询问题
+  - 支持SearchIndex
+  - 支持GlobalIndex
+  - 支持原子加
+  - 支持事务
+  - 支持ExistsQuery
 
 ## 安装
 

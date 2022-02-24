@@ -1,0 +1,1 @@
+pbjs -t static-module tablestore.proto tablestore_filter.proto tablestore_search.proto -w commonjs -o tablestore_compiled_proto.js

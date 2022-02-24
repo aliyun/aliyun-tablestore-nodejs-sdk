@@ -68,7 +68,54 @@ client.createSearchIndex({
                         store: false,
                     }
                 ]
-            }
+            },
+            {
+                fieldName: "date",
+                fieldType: TableStore.FieldType.DATE,
+                index: true,
+                enableSortAndAgg: true,
+                store: true,
+                isAnArray: false,
+                dateFormats: ["yyyy-MM-dd'T'HH:mm:ss.SSSSSS"],
+            },
+            {
+                fieldName: "analyzer_single_word",
+                fieldType: TableStore.FieldType.TEXT,
+                analyzer: "single_word",
+                index: true,
+                enableSortAndAgg: false,
+                store: true,
+                isAnArray: false,
+                analyzerParameter: {
+                    caseSensitive: true,
+                    delimitWord: false,
+                }
+            },
+            {
+                fieldName: "analyzer_split",
+                fieldType: TableStore.FieldType.TEXT,
+                analyzer: "split",
+                index: true,
+                enableSortAndAgg: false,
+                store: true,
+                isAnArray: false,
+                analyzerParameter: {
+                    delimiter: ",",
+                }
+            },
+            {
+                fieldName: "analyzer_fuzzy",
+                fieldType: TableStore.FieldType.TEXT,
+                analyzer: "fuzzy",
+                index: true,
+                enableSortAndAgg: false,
+                store: true,
+                isAnArray: false,
+                analyzerParameter: {
+                    minChars: 1,
+                    maxChars: 5,
+                }
+            },
         ],
         indexSetting: {//optional
             "routingFields": ["count", "pic_id"],//仅支持主键

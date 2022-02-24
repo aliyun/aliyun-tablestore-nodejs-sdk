@@ -12,8 +12,8 @@ var assert = require("assert");
 var tableName = 'testSearchTable';
 var indexName = 'testSearchTableIndex';
 
-describe("#Create Table", function() {
-    it('Response should success', function (done) {
+describe("#Create Table And Index", function() {
+    it('Create table', function (done) {
         var createTableParams = {
             tableMeta: {
                 tableName: tableName,
@@ -118,7 +118,54 @@ describe("#Create Table", function() {
                         enableSortAndAgg: true,
                         store: true,
                         isAnArray: false
-                    }
+                    },
+                    {
+                        fieldName: "date",
+                        fieldType: TableStore.FieldType.DATE,
+                        index: true,
+                        enableSortAndAgg: true,
+                        store: true,
+                        isAnArray: false,
+                        dateFormats: ["yyyy-MM-dd'T'HH:mm:ss.SSSSSS"],
+                    },
+                    {
+                        fieldName: "analyzer_single_word",
+                        fieldType: TableStore.FieldType.TEXT,
+                        analyzer: "single_word",
+                        index: true,
+                        enableSortAndAgg: false,
+                        store: true,
+                        isAnArray: false,
+                        analyzerParameter: {
+                            caseSensitive: true,
+                            delimitWord: false,
+                        }
+                    },
+                    {
+                        fieldName: "analyzer_split",
+                        fieldType: TableStore.FieldType.TEXT,
+                        analyzer: "split",
+                        index: true,
+                        enableSortAndAgg: false,
+                        store: true,
+                        isAnArray: false,
+                        analyzerParameter: {
+                            delimiter: ",",
+                        }
+                    },
+                    {
+                        fieldName: "analyzer_fuzzy",
+                        fieldType: TableStore.FieldType.TEXT,
+                        analyzer: "fuzzy",
+                        index: true,
+                        enableSortAndAgg: false,
+                        store: true,
+                        isAnArray: false,
+                        analyzerParameter: {
+                            minChars: 1,
+                            maxChars: 5,
+                        }
+                    },
                 ]
             }
         };
@@ -213,7 +260,7 @@ describe('#Prove SearchIndex Exist:', function () {
         };
         client.describeSearchIndex(params, function (err, data) {
             assert.equal(err, undefined);
-            assert.equal(data.schema.fieldSchemas.length, 6);
+            assert.equal(data.schema.fieldSchemas.length, 10);
             done();
         })
     })
