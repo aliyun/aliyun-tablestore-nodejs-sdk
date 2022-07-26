@@ -10,6 +10,7 @@ var params = {
     },
     tableOptions: {
         maxVersions: 10,
+        allowUpdate: true, // 是否允许"UpdateRow"相关写入操作
     }
 };
 

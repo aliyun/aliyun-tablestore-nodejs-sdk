@@ -1,0 +1,36 @@
+enum DataType:byte {NONE = 0, LONG = 1, BOOLEAN = 2, DOUBLE = 3, STRING = 4, BINARY = 5, STRING_RLE = 6}
+
+table BytesValue {
+value: [byte];
+}
+
+// rle(run-length encoding) format, [a, a, a, b, c, d, a, a] would encode as
+//  array: [a, b, c, d, a]
+//  index_mapping: [0, 0, 0, 1, 2, 3, 4, 4]
+table RLEStringValues {
+array: [string];
+index_mapping: [int32];
+}
+
+table ColumnValues {
+is_nullvalues: [bool];
+long_values: [long];
+bool_values: [bool];
+double_values: [double];
+string_values: [string];
+binary_values: [BytesValue];
+rle_string_values: RLEStringValues;
+}
+
+table SQLResponseColumn {
+column_name: string;
+column_type: DataType;
+column_value: ColumnValues;
+}
+
+table SQLResponseColumns{
+columns: [SQLResponseColumn];
+row_count: int64;
+}
+
+root_type SQLResponseColumns;

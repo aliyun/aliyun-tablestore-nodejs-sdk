@@ -13,6 +13,19 @@
  
 
 ## 版本特性
+- 版本：5.2.0
+  - 新增 SQL 接口
+  - Search 新增：统计聚合功能
+  - Search ColumnReturnType 支持 RETURN_ALL_FROM_INDEX
+  - Search 部分 Query 支持 weight 参数
+  - 新增 ComputeSplits 接口
+  - 新增 ParallelScan 接口
+  - 新增 UpdateSearchIndex 接口
+  - DescribeSearchIndex 可以获取: 计量、创建时间、TTL 等信息
+  - 创建 SearchIndex 支持: 动态修改schema、TTL
+  - 主表支持 allowUpdate 的修改
+  - 默认重试策略支持 Search 和 SQLQuery
+  - 出错时携带 RequestId
 - 版本：5.1.2
   - 修复 创建含增量二级索引问题修复
 - 版本：5.1.1

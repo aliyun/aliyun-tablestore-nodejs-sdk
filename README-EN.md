@@ -10,17 +10,29 @@
 ## About
  - This NodeJs SDK is a client library for the [Alibaba Cloud Tablestore Service](http://www.aliyun.com/product/ots/) API.
  - Alibaba Cloud Tablestore is a NoSQL database service built on Alibaba Cloud’s Apsara distributed operating system that can store and access large volumes of structured data in real time.
-
-## Version
- - Current Version: 5.0.6
+ 
 
 ## Version Feature Updates
- - Bug fixed: Queries are now supported using the "Long" datatype
- - Added Support for SearchIndex
- - Added Support for GlobalIndex
- - Added Support for Atomic Addition
- - Added Support for Transactions
- - Added Support for ExistsQuery
+- Version: 5.2.0
+    - Added Support for SQL
+    - Added Support for Search Agg and GroupBy
+    - Added Support for Search ColumnReturnType RETURN_ALL_FROM_INDEX
+    - Added Support for Search Query Weight Parameter
+    - Added Support for ComputeSplits
+    - Added Support for ParallelScan
+    - Added Support for UpdateSearchIndex
+    - UpdateSearchIndex supports the return of measurement, TTL, createTime and other information
+    - CreateSearchIndex supports dynamic schema modification and TTL
+    - Added Support for Table allowUpdate Parameter
+    - Modified Retry Policy
+    - Carry RequestId in Error
+ - Version: 4.3.2 
+   - Bug fixed: Queries are now supported using the "Long" datatype
+   - Added Support for SearchIndex
+   - Added Support for GlobalIndex
+   - Added Support for Atomic Addition
+   - Added Support for Transactions
+   - Added Support for ExistsQuery
 
 ## Installation
 

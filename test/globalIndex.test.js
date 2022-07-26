@@ -139,7 +139,7 @@ describe('#GlobalIndex Test:', function () {
             tableName: 'sdkGlobalTest'
         };
         client.listTable(describeTableParams, function (describeTableErr, listTableData) {
-            assert.equal(listTableData.indexMetas.indexOf(describeTableParams.tableName), -1);
+            assert.equal(listTableData.tableNames.indexOf(describeTableParams.tableName), -1);
             done();
         })
     })

@@ -64,6 +64,7 @@ message TableOptions {
     optional BloomFilterType bloom_filter_type = 3; // 可以动态更改
     optional int32 block_size = 4; // 可以动态更改
     optional int64 deviation_cell_version_in_sec = 5; // 可以动态修改
+    optional bool allow_update = 6;
 }
 
 enum IndexUpdateMode {
@@ -635,3 +636,35 @@ message ComputeSplitPointsBySizeResponse {
 }
 /* -------------------------------------- */
 
+/* SQLQuery */
+enum SQLPayloadVersion {
+    SQL_PLAIN_BUFFER = 1;
+    SQL_FLAT_BUFFERS = 2;
+}
+
+enum SQLStatementType {
+    SQL_SELECT = 1;
+    SQL_CREATE_TABLE = 2;
+    SQL_SHOW_TABLE = 3;
+    SQL_DESCRIBE_TABLE = 4;
+    SQL_DROP_TABLE = 5;
+    SQL_ALTER_TABLE = 6;
+}
+
+message SQLQueryRequest {
+    required string query = 1;
+    optional SQLPayloadVersion version = 2;
+}
+
+message TableConsumedCapacity {
+    optional string table_name = 1;
+    optional ConsumedCapacity consumed = 2;
+    optional ReservedThroughput reserved_throughput = 3;
+}
+
+message SQLQueryResponse {
+    repeated TableConsumedCapacity consumes = 1;
+    optional bytes rows = 2;
+    optional SQLPayloadVersion version = 3;
+    optional SQLStatementType type = 4;
+}
