@@ -13,6 +13,8 @@
  
 
 ## 版本特性
+- 版本：5.2.1
+  - SQL使用默认序列化协议SQL_FLAT_BUFFERS
 - 版本：5.2.0
   - 新增 SQL 接口
   - Search 新增：统计聚合功能
@@ -65,5 +67,5 @@ npm install tablestore
 - [阿里云云栖社区](http://yq.aliyun.com)
 - [阿里云工单系统](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
-### 扫码加入TableStore钉钉讨论群，和我们直接交流讨论
-![Image text](img/QRCode.JPG)
+### 扫码加入TableStore钉钉讨论群(群号:23307953)，和我们直接交流讨论
+![Image text](img/QRCode.png)

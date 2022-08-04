@@ -58,7 +58,7 @@ describe('sql', function () {
     it('6) sql:describe test_table', async function () {
         {
             const query = "describe " + tableName;
-            const resp = await otsTestUtils.sqlQuery(query, TableStore.SQLPayloadVersion.SQL_FLAT_BUFFERS)
+            const resp = await otsTestUtils.sqlQuery(query)
             console.log(JSON.stringify(resp, null, "\t"));
         }
         return otsTestUtils.emptyPromise;
@@ -67,7 +67,7 @@ describe('sql', function () {
     it('7) sql: sql', async function () {
         {
             const query = "select * from " + tableName + " where col_long>5 limit 4";
-            const resp = await otsTestUtils.sqlQuery(query, TableStore.SQLPayloadVersion.SQL_FLAT_BUFFERS)
+            const resp = await otsTestUtils.sqlQuery(query)
             assert.equal(4, resp.sqlRows.rowCount.toFloat64());
             assert.equal(6, resp.sqlRows.columnCount);
             assert.ok(resp.sqlRows.sqlTableMeta.schemas.length === 6)

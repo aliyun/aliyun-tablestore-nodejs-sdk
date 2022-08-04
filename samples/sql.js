@@ -1,9 +1,7 @@
 const client = require('./client');
-const TableStore = require("../index");
 
 const params = {
     query: "select * from test_table",
-    version: TableStore.SQLPayloadVersion.SQL_PLAIN_BUFFER,
 }
 
 client.sqlQuery(params, function (err, data) {

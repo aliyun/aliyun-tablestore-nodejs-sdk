@@ -13,6 +13,8 @@
  
 
 ## Version Feature Updates
+- Version: 5.2.1
+  - SQL use default SQLPayloadVersion SQL_FLAT_BUFFERS
 - Version: 5.2.0
     - Added Support for SQL
     - Added Support for Search Agg and GroupBy
@@ -56,5 +58,5 @@ You can configure the samples for use by setting the correct relevant parameters
 - [Alibaba Cloud Official Blog](https://www.alibabacloud.com/blog)
 - [Create Alibaba Cloud Support Ticket (Must be logged in)](https://workorder.console.aliyun.com/#/ticket/createIndex)
 
-### Join our Tablestore Chat Group on [DingDing Talk](https://www.dingtalk.com/en)
-![Image text](img/QRCode-EN.JPG)
+### Join our Tablestore Chat Group(GroupNumber:23307953) on [DingDing Talk](https://www.dingtalk.com/en)
+![Image text](img/QRCode-EN.png)
