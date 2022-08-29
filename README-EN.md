@@ -13,6 +13,8 @@
  
 
 ## Version Feature Updates
+- Version: 5.2.2
+    - Search Support Collapse
 - Version: 5.2.1
   - SQL use default SQLPayloadVersion SQL_FLAT_BUFFERS
 - Version: 5.2.0

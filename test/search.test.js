@@ -371,6 +371,30 @@ describe('Search Query', () => {
         return otsTestUtils.emptyPromise
     });
 
+    it('collapse test ', async function () {
+        this.timeout(160000);
+        const tableName = "js_agg_and_group_by"
+        const indexName = tableName + "_index"
+        let searchResp = await otsTestUtils.search(tableName, indexName, {
+                offset: 0,
+                limit: 100,
+                query: {
+                    queryType: TableStore.QueryType.MATCH_ALL_QUERY,
+                },
+                getTotalCount: true,
+                collapse: {
+                    fieldName: "col_keyword",
+                },
+            },
+            {
+                returnType: TableStore.ColumnReturnType.RETURN_ALL_FROM_INDEX,
+            })
+        console.log(JSON.stringify(searchResp))
+        // 本case复用上述case索引，因此需要先运行上面case，让索引创建出来
+        assert.equal(12, searchResp.rows.length)
+        return otsTestUtils.emptyPromise
+    });
+
     it("weight", async function () {
         this.timeout(30000);
         const tableName = "js_weight"

@@ -264,7 +264,10 @@ client.search({
                     // }
                 }
             ]
-        }
+        },
+        // collapse: {
+        //     fieldName: "col_keyword",
+        // },
     },
     columnToGet: {
         returnType: TableStore.ColumnReturnType.RETURN_NONE,
