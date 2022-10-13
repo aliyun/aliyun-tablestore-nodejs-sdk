@@ -13,10 +13,12 @@
  
 
 ## Version Feature Updates
+- Version: 5.3.0
+    - SQLPayloadVersion no longer supports SQL_PLAIN_BUFFER
 - Version: 5.2.2
     - Search Support Collapse
 - Version: 5.2.1
-  - SQL use default SQLPayloadVersion SQL_FLAT_BUFFERS
+    - SQL use default SQLPayloadVersion SQL_FLAT_BUFFERS
 - Version: 5.2.0
     - Added Support for SQL
     - Added Support for Search Agg and GroupBy
@@ -30,13 +32,13 @@
     - Added Support for Table allowUpdate Parameter
     - Modified Retry Policy
     - Carry RequestId in Error
- - Version: 4.3.2 
-   - Bug fixed: Queries are now supported using the "Long" datatype
-   - Added Support for SearchIndex
-   - Added Support for GlobalIndex
-   - Added Support for Atomic Addition
-   - Added Support for Transactions
-   - Added Support for ExistsQuery
+- Version: 4.3.2 
+  - Bug fixed: Queries are now supported using the "Long" datatype
+  - Added Support for SearchIndex
+  - Added Support for GlobalIndex
+  - Added Support for Atomic Addition
+  - Added Support for Transactions
+  - Added Support for ExistsQuery
 
 ## Installation
 

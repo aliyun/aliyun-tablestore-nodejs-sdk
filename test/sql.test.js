@@ -90,6 +90,19 @@ describe('sql', function () {
         }
         return otsTestUtils.emptyPromise;
     });
+
+    it('5) sql:only support fbs', async function () {
+        try {
+            const query = "show tables";
+            const resp = await otsTestUtils.sqlQuery(query, 1)
+            console.log(JSON.stringify(resp, null, "\t"));
+            assert.fail("except fail")
+        } catch (e) {
+            console.log(e);
+            assert.ok(e.toString().includes("SQL payload version only support: 'TableStore.SQLPayloadVersion.SQL_FLAT_BUFFERS'"))
+        }
+        return otsTestUtils.emptyPromise;
+    });
 });
 
 

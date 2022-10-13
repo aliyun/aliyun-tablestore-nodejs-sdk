@@ -13,6 +13,8 @@
  
 
 ## 版本特性
+- 版本：5.3.0
+  - SQL 序列化协议去除对 SQL_PLAIN_BUFFER 的支持，使用性能更好的 SQL_FLAT_BUFFERS
 - 版本：5.2.2
   - Search 支持折叠功能
 - 版本：5.2.1

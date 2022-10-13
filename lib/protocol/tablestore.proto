@@ -638,7 +638,6 @@ message ComputeSplitPointsBySizeResponse {
 
 /* SQLQuery */
 enum SQLPayloadVersion {
-    SQL_PLAIN_BUFFER = 1;
     SQL_FLAT_BUFFERS = 2;
 }
 
