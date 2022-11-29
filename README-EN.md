@@ -13,6 +13,8 @@
  
 
 ## Version Feature Updates
+- Version: 5.3.1
+    - Modified the writing style of some js, compatible with Deno
 - Version: 5.3.0
     - SQLPayloadVersion no longer supports SQL_PLAIN_BUFFER
 - Version: 5.2.2
