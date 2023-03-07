@@ -13,6 +13,8 @@
  
 
 ## Version Feature Updates
+- Version: 5.4.1
+  - fix wrong time unit in default_retry_policy.js
 - Version: 5.3.1
     - Modified the writing style of some js, compatible with Deno
 - Version: 5.3.0
