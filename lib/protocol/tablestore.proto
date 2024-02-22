@@ -77,12 +77,19 @@ enum IndexType {
     IT_LOCAL_INDEX = 1;
 }
 
+enum IndexSyncPhase {
+    ISP_INVALID = 0;
+    ISP_FULL = 1;
+    ISP_INCR = 2;
+}
+
 message IndexMeta {
     required string name = 1;
     repeated string primary_key = 2;
     repeated string defined_column = 3;
     required IndexUpdateMode index_update_mode = 4;
     required IndexType index_type = 5;
+    optional IndexSyncPhase index_sync_phase = 6;
 }
 
 message TableMeta {

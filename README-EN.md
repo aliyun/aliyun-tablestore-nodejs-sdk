@@ -13,6 +13,18 @@
  
 
 ## Version Feature Updates
+- Version: 5.5.0
+  - Search: GroupByDateHistogram
+  - GroupByHistogram Support Offset Parameter
+  - DescribeTable API Support IndexSyncPhase
+  - DescribeSearchIndex Support IndexStatus
+  - Search: GroupByGeoGrid
+  - Search: Function Score
+  - Search: KnnVectorQuery
+  - Search: Highlight
+  - Nested Query Highlight
+  - Search: GroupByComposite
+  - Field Sort Support Missing Field Parameter
 - Version: 5.4.1
   - fix wrong time unit in default_retry_policy.js
 - Version: 5.3.1
