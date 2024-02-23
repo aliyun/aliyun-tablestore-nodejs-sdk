@@ -1,0 +1,35 @@
+declare const CONSTS: {
+  HEADER: number;
+  TAG_ROW_PK: number;
+  TAG_ROW_DATA: number;
+  TAG_CELL: number;
+  TAG_CELL_NAME: number;
+  TAG_CELL_VALUE: number;
+  TAG_CELL_TYPE: number;
+  TAG_CELL_TIMESTAMP: number;
+  TAG_DELETE_ROW_MARKER: number;
+  TAG_ROW_CHECKSUM: number;
+  TAG_CELL_CHECKSUM: number;
+  TAG_EXTENSION: number;
+  TAG_SEQ_INFO: number;
+  TAG_SEQ_INFO_EPOCH: number;
+  TAG_SEQ_INFO_TS: number;
+  TAG_SEQ_INFO_ROW_INDEX: number;
+  DELETE_ALL_VERSION: number;
+  DELETE_ONE_VERSION: number;
+  INCREMENT: number;
+  VT_INTEGER: number;
+  VT_DOUBLE: number;
+  VT_BOOLEAN: number;
+  VT_STRING: number;
+  VT_NULL: number;
+  VT_BLOB: number;
+  VT_INF_MIN: number;
+  VT_INF_MAX: number;
+  VT_AUTO_INCREMENT: number;
+  LITTLE_ENDIAN_32_SIZE: number;
+  LITTLE_ENDIAN_64_SIZE: number;
+  MAX_BUFFER_SIZE: number;
+};
+
+export default CONSTS;
