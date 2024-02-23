@@ -254,6 +254,7 @@ describe('#Prove SearchIndex Exist:', function () {
         client.describeSearchIndex(params, function (err, data) {
             assert.equal(err, undefined);
             assert.equal(data.schema.fieldSchemas.length, 10);
+            assert.equal(TableStore.IndexStatus.RUNNING, data.indexStatus.status)
             done();
         })
     })

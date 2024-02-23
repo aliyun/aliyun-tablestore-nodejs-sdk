@@ -68,7 +68,82 @@ otsTestUtils = {
             store: true,
             isAnArray: false,
             dateFormats: ["yyyy-MM-dd'T'HH:mm:ss.SSSSSS"],
-        }],
+        }, {
+            fieldName: "col_double",
+            fieldType: TableStore.FieldType.DOUBLE,
+            index: true,
+            enableSortAndAgg: true,
+            store: false,
+            isAnArray: false
+        }, {
+            fieldName: "col_vector",
+            fieldType: TableStore.FieldType.VECTOR,
+            index: true,
+            isAnArray: false,
+            vectorOptions: {
+                dataType: TableStore.VectorDataType.VD_FLOAT_32,
+                dimension: 4,
+                metricType: TableStore.VectorMetricType.VM_COSINE,
+            }
+        }, {
+            fieldName: "col_text2",
+            fieldType: TableStore.FieldType.TEXT,
+            index: true,
+            enableHighlighting: true,
+        }, {
+            fieldName: "col_nested2 ",
+            fieldType: TableStore.FieldType.NESTED,
+            index: false,
+            enableSortAndAgg: false,
+            store: false,
+            fieldSchemas: [
+                {
+                    fieldName: "Level1_Col1_Text",
+                    fieldType: TableStore.FieldType.TEXT,
+                    index: true,
+                    enableHighlighting: true,
+                    enableSortAndAgg: false,
+                    store: true,
+                },
+                {
+                    fieldName: "Level1_Col2_Nested",
+                    fieldType: TableStore.FieldType.NESTED,
+                    index: false,
+                    enableSortAndAgg: false,
+                    store: false,
+                    fieldSchemas: [
+                        {
+                            fieldName: "Level2_Col1_Text",
+                            fieldType: TableStore.FieldType.TEXT,
+                            index: true,
+                            enableHighlighting: true,
+                            enableSortAndAgg: false,
+                            store: true,
+                        },
+                    ]
+                }
+            ]
+        },{
+            fieldName: "col_long_sec",
+            fieldType: TableStore.FieldType.LONG,
+            index: true,
+            enableSortAndAgg: true,
+        }, {
+            fieldName: "col_date",
+            fieldType: TableStore.FieldType.DATE,
+            index: true,
+            enableSortAndAgg: false,
+            store: false,
+            isAnArray: false,
+            dateFormats: ["yyyy-MM-dd HH:mm:ss"],
+        },{
+            fieldName: "col_keyword2",
+            fieldType: TableStore.FieldType.KEYWORD,
+            index: true,
+            enableSortAndAgg: true,
+            store: true,
+            isAnArray: false
+        },],
     },
     emptyPromise: new Promise(function (resolve) {
         resolve()
@@ -343,6 +418,24 @@ otsTestUtils = {
             });
         });
     },
+    printSearchHit: function (searchHits, prefix) {
+        TableStore.util.arrayEach(searchHits, function (searchHit) {
+            if (searchHit.highlightResultItem != null) {
+                console.log(prefix + "Highlight: \n");
+                var strBuilder = ""
+                for  (const [key,val]  of searchHit.highlightResultItem.highlightFields.entries()) {
+                    strBuilder += key + ":[";
+                    strBuilder += val.fragments.join(",") + "]\n";
+                    console.log(strBuilder);
+                }
+            }
+            for  (const [key,val]  of searchHit.searchInnerHits.entries()) {
+                console.log(prefix + "Path: " + key + "\n");
+                console.log(prefix + "InnerHit: \n");
+                otsTestUtils.printSearchHit(val.subSearchHits, prefix + "    ");
+            }
+        });
+    }
 }
 
 

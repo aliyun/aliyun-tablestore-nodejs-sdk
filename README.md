@@ -13,6 +13,18 @@
  
 
 ## 版本特性
+- 版本: 5.5.0
+  - Search 新增：GroupByDateHistogram 功能
+  - GroupByHistogram 支持 offset 参数
+  - DescribeTable API 新增 IndexSyncPhase 返回
+  - DescribeSearchIndex 新增 IndexStatus 返回
+  - Search 新增：GroupByGeoGrid 功能
+  - Search 新增：完整 Function Score 功能
+  - Search 新增：KnnVectoryQuery 功能
+  - Search 新增：Highlight 功能
+  - Nested Query 支持 Highlight 参数
+  - Search 新增：GroupByComposite 功能
+  - Field Sort 支持 Missing Field 参数
 - 版本：5.4.1
   - 修复默认重试策略中的默认值
 - 版本：5.3.1
