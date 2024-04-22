@@ -13,6 +13,8 @@
  
 
 ## 版本特性
+- 版本: 5.5.1
+  - Bug fix in _parseSearchHit function.
 - 版本: 5.5.0
   - Search 新增：GroupByDateHistogram 功能
   - GroupByHistogram 支持 offset 参数
