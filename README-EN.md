@@ -13,6 +13,8 @@
  
 
 ## Version Feature Updates
+- Version: 5.6.0
+  - Remove domain dependency.
 - Version: 5.5.1
   - Bug fix in _parseSearchHit function.
 - Version: 5.5.0

@@ -13,6 +13,8 @@
  
 
 ## 版本特性
+- 版本: 5.6.0
+  - Remove domain dependency.
 - 版本: 5.5.1
   - Bug fix in _parseSearchHit function.
 - 版本: 5.5.0
