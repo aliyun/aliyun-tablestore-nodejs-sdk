@@ -12,7 +12,7 @@ var params = {
                     type: 'UPDATE',
                     condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
                     primaryKey: [{ 'gid': Long.fromNumber(8) }, { 'uid': Long.fromNumber(80) }],
-                    attributeColumns: [{ 'PUT': [{ 'attrCol1': 'test3' }, { 'attrCol2': 'test4' }] }],
+                    updateOfAttributeColumns: [{ 'PUT': [{ 'attrCol1': 'test3' }, { 'attrCol2': 'test4' }] }],
                     returnContent: { returnType: 1 }
                 },
                 {
