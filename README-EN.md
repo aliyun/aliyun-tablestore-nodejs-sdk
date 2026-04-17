@@ -13,6 +13,14 @@
  
 
 ## Version Feature Updates
+- Version: 5.6.4
+  - Add memory apis.
+- Version: 5.6.3
+  - Fix ReferenceError for ESM.
+- Version: 5.6.2
+  - Fix jsonify getRow response.
+- Version: 5.6.1
+  - Fix function name.
 - Version: 5.6.0
   - Remove domain dependency.
 - Version: 5.5.1

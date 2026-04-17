@@ -13,6 +13,14 @@
  
 
 ## 版本特性
+- 版本: 5.6.4
+  - 添加知识库相关api.
+- 版本: 5.6.3
+  - Fix ReferenceError for ESM.
+- 版本: 5.6.2
+  - Fix jsonify getRow response.
+- 版本: 5.6.1
+  - Fix function name.
 - 版本: 5.6.0
   - Remove domain dependency.
 - 版本: 5.5.1

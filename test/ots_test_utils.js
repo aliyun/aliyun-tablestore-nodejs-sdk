@@ -3,7 +3,7 @@ const TableStore = require("../index");
 const assert = require("assert");
 const {performance} = require('perf_hooks');
 
-otsTestUtils = {
+const otsTestUtils = {
     testSimpleSchema: {
         fieldSchemas: [{
             fieldName: "col_keyword",
